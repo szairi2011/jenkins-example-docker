@@ -1,14 +1,16 @@
 pipeline {
-  agent { dockerfile true }
-  stages {
-    stage('Test') {
-      steps {
-        sh '''
-          node --version
-          git --version
-          curl --version
-        '''
-      }
+    agent {
+        label 'ubuntu-docker-maven'
     }
-  }
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    docker.image('maven:3.9.6-eclipse-temurin-17-alpine').inside {
+                        sh 'mvn --version'
+                    }
+                }
+            }
+        }
+    }
 }
