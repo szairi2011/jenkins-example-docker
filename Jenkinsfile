@@ -3,13 +3,9 @@ pipeline {
         label 'ubuntu-docker-maven'
     }
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                script {
-                    docker.image('maven:3.9.6-eclipse-temurin-17-alpine').inside {
-                        sh 'mvn --version'
-                    }
-                }
+                echo 'Hello from ai connector Jenkinsfile'
             }
         }
     }
