@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello from ai connector Jenkinsfile'
+                echo 'Hello from jenkins-example-docker Jenkinsfile'
             }
         }
     }
